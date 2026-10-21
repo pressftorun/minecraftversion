@@ -27,4 +27,4 @@ jobs:
           else
             tag="client-${GITHUB_SHA:0:7}"
           fi
-          gh release create "$tag" release/client.zip release/client.zip.sha256 --target "$GITHUB_SHA" --title "Minecraft 1.21.1 · NeoForge 21.1.264" --generate-notes
+          gh release create "$tag" release/client.zip release/client.zip.sha256 --target "$GITHUB_SHA" --title "Minecraft 1.21.1 · NeoForge 21.1.264" --notes-file RELEASE.md

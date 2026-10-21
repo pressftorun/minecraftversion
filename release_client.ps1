@@ -4,6 +4,9 @@ $pack = Join-Path $Root 'pack'
 $manifestPath = Join-Path $pack 'manifest.json'
 $manifest = Get-Content -LiteralPath $manifestPath -Raw | ConvertFrom-Json
 $files = Get-ChildItem -LiteralPath $pack -Recurse -File | Where-Object { $_.FullName -ne $manifestPath } | Sort-Object FullName
+if ($files | Where-Object { $_.Directory.Name -eq 'mods' -and $_.Name -like 'neologin-*.jar' }) {
+    throw 'NeoLogin is server-only: including it in the client blocks multiplayer interaction.'
+}
 $hashes = [ordered]@{}
 foreach ($file in $files) {
     if ($file.Attributes -band [IO.FileAttributes]::ReparsePoint) { throw "Symlink not permitted: $($file.Name)" }
