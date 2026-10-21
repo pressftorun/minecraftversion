@@ -1,7 +1,15 @@
 # Create Server — клиент
 
+[![Client release](https://github.com/pressftorun/minecraftversion/actions/workflows/release.yml/badge.svg)](https://github.com/pressftorun/minecraftversion/actions/workflows/release.yml)
+[![Release](https://img.shields.io/github/v/release/pressftorun/minecraftversion)](https://github.com/pressftorun/minecraftversion/releases/latest)
+[![License: MIT](https://img.shields.io/badge/Original_code-MIT-blue.svg)](LICENSE)
+
 Minecraft **1.21.1**, NeoForge **21.1.264**, **57 модов**.
 Сервер: `46.146.228.125:25565`. [BlueMap](http://46.146.228.125:8100/).
+
+[Установить](#скачать-и-установить) · [Изменения](CHANGELOG.md) · [Внести изменения](CONTRIBUTING.md) · [Безопасность](SECURITY.md)
+
+Готовая клиентская сборка для сервера Create: моды, настройки и оформление игры. Сам лаунчер разрабатывается отдельно в [minecraftlauncher](https://github.com/pressftorun/minecraftlauncher).
 
 ## Скачать и установить
 
@@ -15,11 +23,31 @@ Minecraft **1.21.1**, NeoForge **21.1.264**, **57 модов**.
 Миры, аккаунты, токены и пользовательский список серверов не публикуются.
 Minecraft, Java и загрузчик скачиваются лаунчером отдельно и не входят в репозиторий.
 
+## Структура репозитория
+
+| Путь | Назначение |
+| --- | --- |
+| `pack/mods/` | JAR-файлы модов клиента |
+| `pack/config/` | Настройки модов и ресурсы оформления |
+| `pack/manifest.json` | Версии игры/загрузчика и SHA-256 файлов |
+| `release_client.ps1` | Подготовка манифеста, ZIP и контрольной суммы |
+| `release/` | Локальный результат упаковки; исключён из Git |
+| `RELEASE.md` | Описание публикуемого релиза |
+| `.github/workflows/release.yml` | Упаковка и публикация в GitHub Actions |
+
 ## Обновление сборки
 
 Изменяйте моды и конфиги в `pack/`, затем выполните `pwsh ./release_client.ps1`.
-Архив и SHA-256 появятся в `release/`. GitHub Actions собирает и публикует их после обновления main.
+Архив и SHA-256 появятся в `release/`. Скрипт обновляет `pack/manifest.json` и проверяет, что NeoLogin не попал в клиент. Сам скрипт ничего не публикует; GitHub Actions собирает и публикует пакет после обновления `main`.
 Игроку для распаковки сборки Python или PowerShell не нужны.
+
+Не копируйте в `pack/` всю пользовательскую установку. После изменения файлов заново выполните упаковку, чтобы обновить хеши. Полные инструкции: [внесение изменений](CONTRIBUTING.md) и [выпуск релиза](docs/RELEASING.md).
+
+## Сообщить о проблеме
+
+Ошибка установки, интерфейса или профиля — [issues лаунчера](https://github.com/pressftorun/minecraftlauncher/issues/new/choose). Ошибка модов, игрового меню или настроек пакета — [issues клиента](https://github.com/pressftorun/minecraftversion/issues/new/choose).
+
+Укажите версию сборки, ОС, дополнительные моды и шаги воспроизведения. Перед отправкой журнала удалите личные сведения. Для уязвимостей используйте [SECURITY.md](SECURITY.md).
 
 ## Лицензии и авторство
 
