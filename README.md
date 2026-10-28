@@ -11,6 +11,8 @@ Minecraft **1.21.1**, NeoForge **21.1.264**, основные и опциона�
 
 Готовая клиентская сборка для сервера Create: моды, настройки и оформление игры. Сам лаунчер разрабатывается отдельно в [minecraftlauncher](https://github.com/pressftorun/minecraftlauncher).
 
+В стандартную установку входят ресурспаки **Faithful 32x** (June 2026, Minecraft 1.21.1) и **Faithful 64x** (Release 6), созданные [Faithful Resource Pack](https://faithfulpack.net), а также шейдеры **Bliss 2.1.2** и **Complementary Reimagined r5.9.3**. Faithful выбирается в «Настройки → Наборы ресурсов», шейдеры — в настройках графики Iris. Ресурспаки автоматически не включаются; для новой установки сохранён выбор Complementary Reimagined. Обновление сохраняет пользовательские настройки. [Авторы, версии и лицензии](pack/VISUAL-PACKS.md).
+
 ## Скачать и установить
 
 Скачайте [Create Launcher](https://github.com/pressftorun/minecraftlauncher/releases/latest), распакуйте и нажмите «Установить и играть».
@@ -31,6 +33,8 @@ Minecraft, Java и загрузчик скачиваются лаунчером 
 | `pack/mods/` | JAR-файлы модов клиента |
 | `pack/optional-mods/` | Опциональные моды; устанавливаются в отдельную папку `optional-mods/` клиента |
 | `pack/config/` | Настройки модов и ресурсы оформления |
+| `pack/resourcepacks/` | Faithful 32x и 64x для Minecraft 1.21.1 |
+| `pack/shaderpacks/` | Bliss и Complementary Reimagined для Iris |
 | `pack/manifest.json` | Версии игры/загрузчика и SHA-256 файлов |
 | `release_client.ps1` | Подготовка манифеста, ZIP и контрольной суммы |
 | `release/` | Локальный результат упаковки; исключён из Git |
