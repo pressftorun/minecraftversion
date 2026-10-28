@@ -1,12 +1,13 @@
 $ErrorActionPreference = 'Stop'
 $testRoot = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot ('release/package-test-' + [Guid]::NewGuid().ToString('N'))))
 try {
-    foreach ($directory in @('pack/mods', 'pack/optional-mods', 'pack/config/fancymenu')) {
+    foreach ($directory in @('pack/mods', 'pack/optional-mods', 'pack/config/fancymenu', 'pack/resourcepacks')) {
         New-Item -ItemType Directory -Path (Join-Path $testRoot $directory) -Force | Out-Null
     }
     Set-Content -LiteralPath (Join-Path $testRoot 'pack/mods/required.jar') -Value 'required library'
     Set-Content -LiteralPath (Join-Path $testRoot 'pack/optional-mods/map.jar') -Value 'optional map'
     Set-Content -LiteralPath (Join-Path $testRoot 'pack/config/fancymenu/options.txt') -Value 'keep menu'
+    Set-Content -LiteralPath (Join-Path $testRoot 'pack/resourcepacks/VISUAL-PACKS.md') -Value 'credits in a launcher-approved directory'
     Set-Content -LiteralPath (Join-Path $testRoot 'pack/manifest.json') -Value '{"name":"Test","minecraft":"1.21.1","loader":"21.1.264","files":{}}'
     & (Join-Path $PSScriptRoot 'release_client.ps1') -Root $testRoot | Out-Null
     $optionalPath = Join-Path $testRoot 'release/optional-mods.zip'
@@ -32,6 +33,7 @@ try {
         if (!$full.GetEntry('mods/required.jar') -or !$full.GetEntry('config/fancymenu/options.txt') -or !$full.GetEntry('optional-mods/map.jar')) {
             throw 'Full client archive lost required files or menu settings'
         }
+        if (!$full.GetEntry('resourcepacks/VISUAL-PACKS.md')) { throw 'Client archive lost visual pack credits' }
     } finally { $full.Dispose() }
     $invalidRootFile = Join-Path $testRoot 'pack/VISUAL-PACKS.md'
     Set-Content -LiteralPath $invalidRootFile -Value 'credits at an unsupported root path'
