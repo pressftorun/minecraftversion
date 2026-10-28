@@ -33,6 +33,12 @@ try {
             throw 'Full client archive lost required files or menu settings'
         }
     } finally { $full.Dispose() }
+    $invalidRootFile = Join-Path $testRoot 'pack/VISUAL-PACKS.md'
+    Set-Content -LiteralPath $invalidRootFile -Value 'credits at an unsupported root path'
+    $rejected = $false
+    try { & (Join-Path $PSScriptRoot 'release_client.ps1') -Root $testRoot | Out-Null }
+    catch { if ($_.Exception.Message -notlike '*Invalid client pack path: VISUAL-PACKS.md*') { throw }; $rejected = $true }
+    if (!$rejected) { throw 'Packaging accepted a root file rejected by the launcher' }
     Write-Output 'PASS: optional archive, filtered manifest, preserved full pack and SHA-256 checksums'
 } finally {
     $releaseRoot = [IO.Path]::GetFullPath((Join-Path $PSScriptRoot 'release')) + [IO.Path]::DirectorySeparatorChar

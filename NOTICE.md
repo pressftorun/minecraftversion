@@ -1,6 +1,6 @@
 # License scope
 
-Faithful 32x (1.21.1, June 2026) and Faithful 64x (Release 6), by [Faithful Resource Pack](https://faithfulpack.net), are included unchanged under the [Faithful License](https://faithfulpack.net/license). Bliss 2.1.2, by X0nk based on Chocapic13's shaders, and Complementary Reimagined r5.9.3, by EminGTR / Complementary Development, retain their upstream notices and licenses. Credits, exact versions and official downloads are also shipped inside every client archive in [VISUAL-PACKS.md](pack/VISUAL-PACKS.md).
+Faithful 32x (1.21.1, June 2026) and Faithful 64x (Release 6), by [Faithful Resource Pack](https://faithfulpack.net), are included unchanged under the [Faithful License](https://faithfulpack.net/license). Bliss 2.1.2, by X0nk based on Chocapic13's shaders, and Complementary Reimagined r5.9.3, by EminGTR / Complementary Development, retain their upstream notices and licenses. Credits, exact versions and official downloads are also shipped inside every client archive in [VISUAL-PACKS.md](pack/resourcepacks/VISUAL-PACKS.md).
 
 Craft Config Library 1.1.12 (NeoForge, Minecraft 1.21.1), by ray (tricube), is included unchanged in `pack/mods/` as a required client library. Official release: https://modrinth.com/mod/craft-config/version/Rb4Vhqf9. License: MIT; original notices remain inside the JAR. The upstream JAR reports internal mod version 1.1.3.
 

@@ -8,9 +8,15 @@ if ($files | Where-Object { $_.Directory.Name -eq 'mods' -and $_.Name -like 'neo
     throw 'NeoLogin is server-only: including it in the client blocks multiplayer interaction.'
 }
 $hashes = [ordered]@{}
+# Keep this list aligned with LauncherService.PackPath in minecraftlauncher.
+$allowedDirectories = @('mods', 'optional-mods', 'config', 'defaultconfigs', 'coremods', 'resourcepacks', 'shaderpacks', 'texturepacks', 'moonlight-global-datapacks')
 foreach ($file in $files) {
     if ($file.Attributes -band [IO.FileAttributes]::ReparsePoint) { throw "Symlink not permitted: $($file.Name)" }
     $name = [IO.Path]::GetRelativePath($pack, $file.FullName).Replace('\', '/')
+    $parts = $name.Split('/')
+    if ($name.Contains(':') -or ($parts | Where-Object { $_ -in @('..', '.', '') }) -or ($name -ne 'options.txt' -and $parts[0] -notin $allowedDirectories)) {
+        throw "Invalid client pack path: $name"
+    }
     $hashes[$name] = (Get-FileHash -LiteralPath $file.FullName -Algorithm SHA256).Hash.ToLowerInvariant()
 }
 $manifest.files = $hashes
