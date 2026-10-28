@@ -2,6 +2,10 @@ name: Client release
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - "**/*.md"
+      - "docs/**"
+      - .github/workflows/release-notes.yml
     tags: ['v*']
   workflow_dispatch:
 permissions:
