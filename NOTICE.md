@@ -1,5 +1,7 @@
 # License scope
 
+Craft Config Library 1.1.12 (NeoForge, Minecraft 1.21.1), by ray (tricube), is included unchanged in `pack/mods/` as a required client library. Official release: https://modrinth.com/mod/craft-config/version/Rb4Vhqf9. License: MIT; original notices remain inside the JAR. The upstream JAR reports internal mod version 1.1.3.
+
 The root MIT license covers original build scripts and original Create menu artwork/configuration authored for this project. Third-party mods, shaders, libraries and their assets retain their authors' licenses. Their original license files inside JAR/ZIP archives remain intact. Minecraft and Java game/runtime files, player accounts, worlds and credentials are not included.
 
 The client configuration and grass-block/factory artwork were developed with assistance from OpenAI Codex. No Minecraft textures were copied into the custom artwork.

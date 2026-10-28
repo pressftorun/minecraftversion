@@ -29,3 +29,24 @@ try {
 $digest = (Get-FileHash -LiteralPath $archive -Algorithm SHA256).Hash.ToLowerInvariant()
 "$digest  client.zip" | Set-Content -LiteralPath (Join-Path $output 'client.zip.sha256') -Encoding ascii
 Get-Item -LiteralPath $archive | Select-Object FullName, Length
+$optionalFiles = @($files | Where-Object { [IO.Path]::GetRelativePath($pack, $_.FullName).Replace('\', '/').StartsWith('optional-mods/') })
+$optionalHashes = [ordered]@{}
+foreach ($file in $optionalFiles) {
+    $name = [IO.Path]::GetRelativePath($pack, $file.FullName).Replace('\', '/')
+    $optionalHashes[$name] = $hashes[$name]
+}
+$optionalManifest = [ordered]@{ name = $manifest.name; minecraft = $manifest.minecraft; loader = $manifest.loader; files = $optionalHashes }
+$optionalArchive = Join-Path $output 'optional-mods.zip'
+$stream = [IO.File]::Create($optionalArchive)
+$zip = [IO.Compression.ZipArchive]::new($stream, [IO.Compression.ZipArchiveMode]::Create)
+try {
+    foreach ($file in $optionalFiles) {
+        $name = [IO.Path]::GetRelativePath($pack, $file.FullName).Replace('\', '/')
+        [IO.Compression.ZipFileExtensions]::CreateEntryFromFile($zip, $file.FullName, $name, [IO.Compression.CompressionLevel]::Optimal) | Out-Null
+    }
+    $writer = [IO.StreamWriter]::new($zip.CreateEntry('manifest.json').Open(), [Text.UTF8Encoding]::new($false))
+    try { $writer.Write(($optionalManifest | ConvertTo-Json -Depth 20)) } finally { $writer.Dispose() }
+} finally { $zip.Dispose(); $stream.Dispose() }
+$digest = (Get-FileHash -LiteralPath $optionalArchive -Algorithm SHA256).Hash.ToLowerInvariant()
+"$digest  optional-mods.zip" | Set-Content -LiteralPath (Join-Path $output 'optional-mods.zip.sha256') -Encoding ascii
+Get-Item -LiteralPath $optionalArchive | Select-Object FullName, Length

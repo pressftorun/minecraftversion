@@ -11,6 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - run: ./test-client-package.ps1
+        shell: pwsh
       - run: ./release_client.ps1
         shell: pwsh
       - uses: actions/upload-artifact@v4
@@ -27,4 +29,4 @@ jobs:
           else
             tag="client-${GITHUB_SHA:0:7}"
           fi
-          gh release create "$tag" release/client.zip release/client.zip.sha256 --target "$GITHUB_SHA" --title "Minecraft 1.21.1 · NeoForge 21.1.264" --notes-file RELEASE.md
+          gh release create "$tag" release/client.zip release/client.zip.sha256 release/optional-mods.zip release/optional-mods.zip.sha256 --target "$GITHUB_SHA" --title "Minecraft 1.21.1 · NeoForge 21.1.264" --notes-file RELEASE.md
