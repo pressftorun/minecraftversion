@@ -65,7 +65,7 @@ element {
   y = -15
   width = 200
   height = 25
-  auto_sizing = true
+  auto_sizing = false
   auto_sizing_base_screen_width = 640
   auto_sizing_base_screen_height = 360
   stay_on_screen = true
@@ -95,7 +95,7 @@ vanilla_button {
   y = 17
   width = 200
   height = 25
-  auto_sizing = true
+  auto_sizing = false
   auto_sizing_base_screen_width = 640
   auto_sizing_base_screen_height = 360
   stay_on_screen = true
@@ -122,7 +122,7 @@ vanilla_button {
   y = 49
   width = 96
   height = 25
-  auto_sizing = true
+  auto_sizing = false
   auto_sizing_base_screen_width = 640
   auto_sizing_base_screen_height = 360
   stay_on_screen = true
@@ -149,7 +149,7 @@ vanilla_button {
   y = 49
   width = 96
   height = 25
-  auto_sizing = true
+  auto_sizing = false
   auto_sizing_base_screen_width = 640
   auto_sizing_base_screen_height = 360
   stay_on_screen = true
@@ -176,7 +176,7 @@ vanilla_button {
   y = 81
   width = 200
   height = 25
-  auto_sizing = true
+  auto_sizing = false
   auto_sizing_base_screen_width = 640
   auto_sizing_base_screen_height = 360
   stay_on_screen = true
