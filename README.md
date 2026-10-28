@@ -4,7 +4,7 @@
 [![Release](https://img.shields.io/github/v/release/pressftorun/minecraftversion)](https://github.com/pressftorun/minecraftversion/releases/latest)
 [![License: MIT](https://img.shields.io/badge/Original_code-MIT-blue.svg)](LICENSE)
 
-Minecraft **1.21.1**, NeoForge **21.1.264**, **62 мода**.
+Minecraft **1.21.1**, NeoForge **21.1.264**, основные и опциональные моды.
 Сервер: `46.146.228.125:25565`. [BlueMap](http://46.146.228.125:8100/).
 
 [Установить](#скачать-и-установить) · [Изменения](CHANGELOG.md) · [Внести изменения](CONTRIBUTING.md) · [Безопасность](SECURITY.md)
@@ -35,6 +35,8 @@ Minecraft, Java и загрузчик скачиваются лаунчером 
 | `release/` | Локальный результат упаковки; исключён из Git |
 | `RELEASE.md` | Описание публикуемого релиза |
 | `.github/workflows/release.yml` | Упаковка и публикация в GitHub Actions |
+
+В разделе «Клиентские моды» лаунчера доступны JourneyMap и Quick Skin 3.1.1. Они выключены по умолчанию. Quick Skin позволяет менять скин в игре; его зависимость Architectury API 13.0.11 включена в основной состав клиента. После обновления файлов включите Quick Skin в лаунчере и перезапустите игру.
 
 ## Обновление сборки
 

@@ -4,7 +4,6 @@
   "loader": "21.1.264",
   "server": "46.146.228.125:25565",
   "files": {
-    "optional-mods/journeymap-neoforge-1.21.1-6.0.9.jar": "9bd7734542233d5281750572f17a9258449e826650c081e9a67dc426262c2fde",
     "config/aeronautics-server.toml": "a9302b0253e494e7d80f0a2785bf4514b0b67da85796437ca032482db62be514",
     "config/alltheleaks.json": "2437057bda7e53d91e7a8c400da308a8d848fbdcc80ed845a9c8dbdabd071482",
     "config/bluemap/core.conf": "eeb8ba1ecdd9e2683e29b6ca3703803baaefa942cc4ae0d649d3bbc46d304460",
@@ -186,6 +185,7 @@
     "mods/.index/veinminer.pw.toml": "b015bff55f269d5ad576ace1f843dc3d297bda18851cfa81a96ed307f8b8b5f2",
     "mods/.index/zfastnoise.pw.toml": "3ad634441bde1f3319612cc8dd3c2158fe3edffbe54b2b4cb79bcc6dcfed4353",
     "mods/alltheleaks-1.1.13+1.21.1-neoforge.jar": "c9b76623003dd05dda452d9ed42cb23623b09383fe9ac1efb41c46a3b69ff601",
+    "mods/architectury-13.0.11-neoforge.jar": "9cc92f2c09533fc5482c60f993bd891c655a0e32b637037cdcb7c2b23adedeeb",
     "mods/BetterThirdPerson-neoforge-1.9.0.jar": "2e74076c67a78f16d696ec9ad1e3138d6ed1418544b297dbe3f4ad9cd791d059",
     "mods/bluemap-5.7-neoforge.jar": "827ac3921986d0d5e9c24ef2280f47c110d22dc14d284efb65330010d2e9517d",
     "mods/chat_heads-0.15.7-neoforge-1.21.jar": "02e10437ceeed34e14e0efe206204658e4b8aa8ee7df10f2a9e28ac20f1b0391",
@@ -248,6 +248,8 @@
     "mods/voxy-server-side-neoforge.jar": "1219070831cefae8cfe1322c8a1e6658afd57866e8380eb83c300a917d300db5",
     "mods/zfastnoise-1.0.13+1.21.1+neoforge.jar": "36ee58475c46c56e76c199eebe48dc95aacaa1133512617dcc46053339c2fb5d",
     "mods/zume-1.2.2.jar": "c33b99e8976dfeb0aeb1afcc2ad8e65c7310532ae5ccc38c75317d672dc95e6f",
+    "optional-mods/journeymap-neoforge-1.21.1-6.0.9.jar": "9bd7734542233d5281750572f17a9258449e826650c081e9a67dc426262c2fde",
+    "optional-mods/Quick Skin - NeoForge - 1.21.1-3.1.1.jar": "96842095ff0065208bada05e5dc96f37f663e8fc56c8975f239c93d7dfb1e13b",
     "options.txt": "242a95bc7cec4685933044579ff92ba6896b8db0c07c1b77404c49d24cfbd0a4",
     "shaderpacks/ComplementaryReimagined_r5.9.3.zip": "fed6c879e732cf7fc7bc6570ebb1def43235aa7e96f62859fbdbdbfa0b484b38"
   }
